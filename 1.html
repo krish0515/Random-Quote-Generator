@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Quote Generator</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-align: center;
+      backdrop-filter: blur(3px);
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    }
+
+    #quote-box {
+      background-color: rgba(0,0,0,0.6);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,255,255,0.3);
+      max-width: 600px;
+      transition: all 0.5s ease;
+    }
+
+    #quote {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+    }
+
+    #author {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 30px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 30px;
+      background-color: #00ffff;
+      color: black;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #00cccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Random Quote Generator</h1>
+  <div id="quote-box">
+    <div id="quote">Click the button to get a quote!</div>
+    <div id="author"></div>
+  </div>
+  <button onclick="generateQuote()">Generate Quote</button>
+
+  <script>
+    const quotes = [
+      { text: "The best way to predict the future is to create it.", author: "Peter Drucker" },
+      { text: "You miss 100% of the shots you don’t take.", author: "Wayne Gretzky" },
+      { text: "Believe you can and you're halfway there.", author: "Theodore Roosevelt" },
+      { text: "The only limit to our realization of tomorrow is our doubts of today.", author: "Franklin D. Roosevelt" },
+      { text: "Creativity is intelligence having fun.", author: "Albert Einstein" },
+      { text: "Don’t watch the clock; do what it does. Keep going.", author: "Sam Levenson" }
+    ];
+
+    function generateQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const quoteObj = quotes[randomIndex];
+      document.getElementById("quote").innerText = `"${quoteObj.text}"`;
+      document.getElementById("author").innerText = `- ${quoteObj.author}`;
+    }
+  </script>
+</body>
+</html>
